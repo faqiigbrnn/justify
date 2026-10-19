@@ -28,7 +28,6 @@ body {
   overflow: hidden;
 }
 
-/* panel yang kiri */
 .left-panel {
   flex: 0.9;
   background-color: #cfe2eb;
@@ -54,7 +53,6 @@ body {
   object-fit: contain;
 }
 
-/* panel kanan */
 .right-panel {
   flex: 1.1;
   background-color: #ffffff;
@@ -111,7 +109,6 @@ body {
   margin-bottom: 30px;
 }
 
-/* Input kotakk */
 .input-group {
   margin-bottom: 14px;
 }
@@ -124,7 +121,6 @@ body {
   margin-bottom: 6px;
 }
 
-/*halaman Login*/
 .login-page .input-group {
   margin-bottom: 22px;
 }
@@ -202,6 +198,160 @@ body {
 
 .toggle-password svg {
   animation: eyeBlink 0.22s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 90px;
+  overflow: hidden;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.logo-navbar img {
+  height: 90px;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  display: block;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 110px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #1e293b;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.navbar a:hover {
+  color: #2071a3;
+}
+
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #cfe2eb;
+  padding: 60px 80px;
+  min-height: calc(100vh - 70px);
+  gap: 40px;
+}
+
+.hero-content {
+  flex: 1.2;
+  max-width: 620px;
+  text-align: left;
+}
+
+.hero-content h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.2;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.hero-content h1 span {
+  color: #0f172a;
+}
+
+.hero-content p {
+  font-size: 1.05rem;
+  color: #334155;
+  line-height: 1.6;
+  margin-bottom: 36px;
+  text-align: left;
+  max-width: 520px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.btn-outline-primary {
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background-color: #ffffff;
+  color: #1E5F86;
+  border: 1.5px solid #2071a3;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: #f1f7fa;
+  transform: translateY(-1px);
+}
+
+.btn-filled-primary {
+  padding: 12px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background-color: #2071a3;
+  color: #ffffff;
+  border: 1.5px solid #2071a3;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-filled-primary:hover {
+  background-color: #1a5d86;
+  transform: translateY(-1px);
+}
+
+.hero-image {
+  flex: 0.8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  max-width: 440px;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+@media (max-width: 900px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 40px 24px;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-content h1,
+  .hero-content p {
+    text-align: center;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-image img {
+    max-width: 300px;
+  }
 }
 
 @keyframes eyeBlink {
@@ -338,7 +488,6 @@ body {
   text-decoration: underline;
 }
 
-/* setingan responsif */
 @media (max-width: 768px) {
 
   html,
