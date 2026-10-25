@@ -1,20 +1,18 @@
-import React, { useState } from "react";
-import Login from "./auth/login";
-import Register from "./auth/register";
+import {Routes, Route} from "react-router-dom";
+import Navbar from "./components/layout/Navbar.jsx";
+import Login from "./auth/Login.jsx";
+import Register from "./auth/register.jsx";
+import LandingPage from "./pages/LandingPage.jsx";
 
 function App() {
-  // State navigasi: 'login' atau 'register'
-  const [currentView, setCurrentView] = useState("login");
-
   return (
-    <div>
-      {currentView === "login" ? (
-        <Login onNavigateToRegister={() => setCurrentView("register")} />
-      ) : (
-        <Register onNavigateToLogin={() => setCurrentView("login")} />
-      )}
-    </div>
+      <Routes>
+
+        <Route path="/" element={<><Navbar /> <LandingPage /></>} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+
   );
 }
-
 export default App;
