@@ -1,7 +1,9 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logoImg from "../assets/images/logo.png";
 
 function Register({ onNavigateToLogin }) {
+    const navigate = useNavigate();
     const [fullName, setFullName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -22,36 +24,40 @@ function Register({ onNavigateToLogin }) {
         console.log({ fullName, email, password, agreeTerms });
         alert(`Pendaftaran berhasil untuk ${fullName}! Silakan login.`);
         if (onNavigateToLogin) onNavigateToLogin();
+        else navigate('/login');
     };
 
     return (
-        <div className="page-wrapper register-page">
-            <div className="login-card">
+        <div className="w-screen min-h-screen lg:h-screen flex">
+            <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen overflow-hidden">
 
-
-                <div className="left-panel">
-                    <div className="illustration-container">
-                        <img
-                            src={logoImg}
-                            alt="Justify Logo"
-                            className="illustration-img"
-                        />
+                {/* Panel kiri */}
+                <div className="flex-1 lg:flex-[0.9] bg-[#cfe2eb] flex flex-col justify-center items-center p-6 sm:p-10">
+                    <div className="flex items-center justify-center w-full">
+                        <Link to="/">
+                            <img
+                                src={logoImg}
+                                alt="Justify Logo"
+                                className="max-w-[320px] sm:max-w-[420px] lg:max-w-[500px] w-full h-auto object-contain"
+                            />
+                        </Link>
                     </div>
                 </div>
 
-                <div className="right-panel">
-                    <div className="form-container">
+                {/* Panel kanan */}
+                <div className="flex-1 lg:flex-[1.1] bg-white px-6 py-8 sm:px-12 lg:px-[60px] lg:pt-[35px] lg:pb-[24px] flex flex-col justify-between items-center lg:rounded-bl-[50px] min-h-screen lg:h-screen overflow-y-auto w-full box-border">
+                    <div className="max-w-[380px] w-full my-auto">
 
-                        <h1 className="welcome-title">Welcome</h1>
-                        <h2 className="signin-title">Create Your Account</h2>
-                        <p className="subtitle-text">
+                        <h1 className="text-[28px] font-bold text-black mb-1.5">Welcome</h1>
+                        <h2 className="text-[20px] font-semibold text-gray-900 mb-1">Create Your Account</h2>
+                        <p className="text-[12px] font-normal text-gray-500 mb-4.5">
                             Join us and start your journey today.
                         </p>
 
                         <form onSubmit={handleSubmit}>
-                            <div className="input-group">
-                                <label htmlFor="fullName">Full Name</label>
-                                <div className="input-wrapper">
+                            <div className="mb-3.5">
+                                <label htmlFor="fullName" className="block text-[12px] font-medium text-gray-800 mb-1.5">Full Name</label>
+                                <div className="relative flex items-center">
                                     <input
                                         type="text"
                                         id="fullName"
@@ -59,13 +65,14 @@ function Register({ onNavigateToLogin }) {
                                         value={fullName}
                                         onChange={(e) => setFullName(e.target.value)}
                                         required
+                                        className="w-full border border-gray-300 rounded-[6px] px-3.5 py-2.5 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12"
                                     />
                                 </div>
                             </div>
 
-                            <div className="input-group">
-                                <label htmlFor="email">Email</label>
-                                <div className="input-wrapper">
+                            <div className="mb-3.5">
+                                <label htmlFor="email" className="block text-[12px] font-medium text-gray-800 mb-1.5">Email</label>
+                                <div className="relative flex items-center">
                                     <input
                                         type="email"
                                         id="email"
@@ -73,13 +80,14 @@ function Register({ onNavigateToLogin }) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
+                                        className="w-full border border-gray-300 rounded-[6px] px-3.5 py-2.5 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12"
                                     />
                                 </div>
                             </div>
 
-                            <div className="input-group">
-                                <label htmlFor="password">Password</label>
-                                <div className="input-wrapper">
+                            <div className="mb-3.5">
+                                <label htmlFor="password" className="block text-[12px] font-medium text-gray-800 mb-1.5">Password</label>
+                                <div className="relative flex items-center">
                                     <input
                                         type={showPassword ? "text" : "password"}
                                         id="password"
@@ -87,10 +95,11 @@ function Register({ onNavigateToLogin }) {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
+                                        className="w-full border border-gray-300 rounded-[6px] px-3.5 py-2.5 pr-10 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
                                     />
                                     <button
                                         type="button"
-                                        className="toggle-password"
+                                        className="absolute right-3 bg-transparent border-none text-gray-600 hover:text-gray-900 cursor-pointer flex items-center justify-center p-1 rounded transition duration-200 active:scale-90"
                                         onClick={() => setShowPassword(!showPassword)}
                                         aria-label={showPassword ? "Sembunyikan password" : "Tampilkan password"}
                                     >
@@ -113,9 +122,9 @@ function Register({ onNavigateToLogin }) {
                                 </div>
                             </div>
 
-                            <div className="input-group">
-                                <label htmlFor="confirmPassword">Confirm Password</label>
-                                <div className="input-wrapper">
+                            <div className="mb-3.5">
+                                <label htmlFor="confirmPassword" className="block text-[12px] font-medium text-gray-800 mb-1.5">Confirm Password</label>
+                                <div className="relative flex items-center">
                                     <input
                                         type={showConfirmPassword ? "text" : "password"}
                                         id="confirmPassword"
@@ -123,10 +132,11 @@ function Register({ onNavigateToLogin }) {
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                         required
+                                        className="w-full border border-gray-300 rounded-[6px] px-3.5 py-2.5 pr-10 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
                                     />
                                     <button
                                         type="button"
-                                        className="toggle-password"
+                                        className="absolute right-3 bg-transparent border-none text-gray-600 hover:text-gray-900 cursor-pointer flex items-center justify-center p-1 rounded transition duration-200 active:scale-90"
                                         onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                                         aria-label={showConfirmPassword ? "Sembunyikan password" : "Tampilkan password"}
                                     >
@@ -149,18 +159,17 @@ function Register({ onNavigateToLogin }) {
                                 </div>
                             </div>
 
-
-                            <button type="submit" className="btn-signin">
+                            <button type="submit" className="w-full bg-[#2071a3] hover:bg-[#185a82] text-white py-[11px] px-5 rounded-[6px] text-[13.5px] font-medium cursor-pointer transition duration-200 mt-2">
                                 Sign Up
                             </button>
                         </form>
 
-                        <div className="divider">
-                            <span>or</span>
+                        <div className="flex items-center text-center my-4 text-gray-400 text-[11px] before:flex-1 before:border-b before:border-gray-100 after:flex-1 after:border-b after:border-gray-100">
+                            <span className="px-3">or</span>
                         </div>
 
-                        <div className="social-login-circle">
-                            <button type="button" className="btn-circle" aria-label="Sign up with Google">
+                        <div className="flex justify-center gap-4">
+                            <button type="button" className="w-10 h-10 rounded-full border border-gray-200 bg-white flex items-center justify-center cursor-pointer shadow-xs transition duration-200 hover:-translate-y-0.5 hover:shadow-md" aria-label="Sign up with Google">
                                 <svg width="20" height="20" viewBox="0 0 48 48">
                                     <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z" />
                                     <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z" />
@@ -169,7 +178,7 @@ function Register({ onNavigateToLogin }) {
                                 </svg>
                             </button>
 
-                            <button type="button" className="btn-circle btn-apple" aria-label="Sign up with Apple">
+                            <button type="button" className="w-10 h-10 rounded-full border border-black bg-black flex items-center justify-center cursor-pointer shadow-xs transition duration-200 hover:-translate-y-0.5 hover:shadow-md" aria-label="Sign up with Apple">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
                                     <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
                                 </svg>
@@ -178,14 +187,16 @@ function Register({ onNavigateToLogin }) {
 
                     </div>
 
-                    <p className="signup-footer">
+                    <p className="text-center text-[12px] text-gray-500 pt-3">
                         Already have an account? 👉{" "}
                         <a
                             href="#login"
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (onNavigateToLogin) onNavigateToLogin();
+                                else navigate('/login');
                             }}
+                            className="text-[#2071a3] font-medium hover:underline cursor-pointer"
                         >
                             Sign In
                         </a>

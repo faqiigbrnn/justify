@@ -1,127 +1,135 @@
 import Lawyer from "../assets/images/lawyer-illustration.png";
-
 import LegalStories from "../assets/images/legal-stories.png";
 import LegalQuizzes from "../assets/images/legal-quiz.png";
 import LegalApproach from "../assets/images/legal-approach.png";
+
 function LandingPage() {
-    const features = [
-        {
-            title: "Interactive Legal Stories",
-            description:
-                "Learn about common legal problems through engaging stories based on real-life situations, helping you understand what happens and explore the possible outcomes.",
-            image: LegalStories,
-            imageAlt: "Interactive legal stories illustration",
-            reverse: false,
-        },
-        {
-            title: "Interactive Quizzes",
-            description:
-                "Test your understanding of legal concepts through interactive quizzes. Answer questions, check your results, and reinforce what you've learned.",
-            image: LegalQuizzes,
-            imageAlt: "Interactive quizzes illustration",
-            reverse: true,
-        },
-         {
-            title: "Law Explained Simply",
-            description:
-                "Explore legal concepts in comprehensible language, helping you understand the basics of laws and legal terms through clear explanations.",
-            image: LegalApproach,
-            imageAlt: "Law explained simply illustration",
-            reverse: false,
-        },
-    ];
+  const features = [
+    {
+      title: "Interactive Legal Stories",
+      description:
+        "Learn about common legal problems through engaging stories based on real-life situations, helping you understand what happens and explore the possible outcomes.",
+      image: LegalStories,
+      imageAlt: "Interactive legal stories illustration",
+      reverse: false,
+    },
+    {
+      title: "Interactive Quizzes",
+      description:
+        "Test your understanding of legal concepts through interactive quizzes. Answer questions, check your results, and reinforce what you've learned.",
+      image: LegalQuizzes,
+      imageAlt: "Interactive quizzes illustration",
+      reverse: true,
+    },
+    {
+      title: "Law Explained Simply",
+      description:
+        "Explore legal concepts in comprehensible language, helping you understand the basics of laws and legal terms through clear explanations.",
+      image: LegalApproach,
+      imageAlt: "Law explained simply illustration",
+      reverse: false,
+    },
+  ];
+
   return (
-    <div className="min-h-screen bg-white ">
-      <section className="flex min-h-75 w-full items-center justify-between gap-6 bg-[#cfe2eb] px-6 py-8 sm:px-10 md:min-h-80 md:px-14 lg:px-20">
+    <div className="w-full bg-white">
+      {/* HERO SECTION */}
+      <section className="w-full bg-[#cfe2eb]">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-12 lg:py-16 flex flex-col lg:flex-row items-center justify-between gap-8">
+          
+          {/* Konten Kiri: Teks & Tombol */}
+          <div className="flex-1 max-w-3xl text-left">
+            <h1 className="text-3xl sm:text-4xl lg:text-[42px] xl:text-[46px] font-extrabold text-slate-900 leading-[1.2]">
+              <span className="block lg:whitespace-nowrap">Learn Law & Legal Basics with</span>
+              <span className="block lg:whitespace-nowrap">Interactive Stories and Quizzes</span>
+            </h1>
 
-        <div className="ml-4 w-full max-w-200 shrink md:ml-8 lg:ml-10">
-          <h1 className="text-4xl max-w-150 font-extrabold leading-tight text-slate-900 md:text-4xl">
-            Learn Law & Legal Basics with{" "}
-            <span>Interactive Stories</span> and Quizzes
-          </h1>
-
-            <p className="mt-2 max-w-none font-bold text-xs leading-relaxed text-slate-600 md:text-sm">
-                Explore everyday law through interactive stories, real-world cases, quizzes, and simple legal explanations.
+            <p className="mt-4 text-sm lg:text-base font-medium text-slate-700">
+              Explore everyday law through interactive stories, real-world cases, quizzes, and simple legal explanations.
             </p>
 
-          <div className="mt-10 flex flex-wrap gap-3">
-            <button className="rounded-[14px] border border-[#2071a3] bg-white px-6 py-3 text-xs font-semibold text-[#1e5f86] transition hover:bg-slate-50 cursor-pointer">
-              Start Learning For Free
-            </button>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <button className="rounded-full border border-[#2071a3] bg-white px-7 py-3 text-sm font-semibold text-[#2071a3] hover:bg-slate-50 transition cursor-pointer">
+                Start Learning For Free
+              </button>
 
-            <button className="rounded-[14px] bg-[#2071a3] px-6 py-3 text-xs font-semibold text-white transition hover:bg-[#1a5d86] cursor-pointer">
-              Explore Legal Stories
+              <button className="rounded-full bg-[#2071a3] px-7 py-3 text-sm font-semibold text-white hover:bg-[#185a82] transition cursor-pointer">
+                Explore Legal Stories
+              </button>
+            </div>
+          </div>
+
+          {/* Konten Kanan: Ilustrasi Pengacara */}
+          <div className="flex-1 flex justify-center lg:justify-end">
+            <img
+              src={Lawyer}
+              alt="Lawyer illustration"
+              className="w-full max-w-md h-auto object-contain"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* FITUR SECTION */}
+      <section className="max-w-7xl mx-auto px-6 lg:px-12 py-16">
+        <h2 className="mb-3 text-center text-2xl font-bold text-[#2071a3]">
+          Learn Law Through Real-World Cases
+        </h2>
+        <hr className="border-[#9bcbe5] mb-12 w-48 mx-auto" />
+
+        <div className="space-y-10">
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className={`flex flex-col md:flex-row items-center gap-8 ${
+                feature.reverse ? "md:flex-row-reverse" : ""
+              }`}
+            >
+              <div className="flex-1">
+                <div className="rounded-xl border border-[#9bcbe5] p-6 bg-white">
+                  <h3 className="text-lg font-bold text-[#2071a3]">
+                    {feature.title}
+                  </h3>
+                  <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                    {feature.description}
+                  </p>
+                  <div className="mt-4 flex justify-end">
+                    <button className="rounded-full border border-[#2071a3] px-4 py-1.5 text-xs font-semibold text-[#2071a3] hover:bg-[#2071a3] hover:text-white transition cursor-pointer">
+                      Lanjut →
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex-1 flex justify-center">
+                <img
+                  src={feature.image}
+                  alt={feature.imageAlt}
+                  className="max-w-xs h-auto object-contain"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* CTA SECTION */}
+      <section className="w-full bg-[#cfe2eb] py-14 px-6 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#1b5e84]">
+            Start Learning Law for Free
+          </h2>
+          <p className="mt-2 text-sm text-[#2580ae]">
+            Join our platform and start your journey to understanding law and legal basics through interactive stories and quizzes.
+          </p>
+          <div className="mt-6">
+            <button className="rounded-full bg-white px-8 py-3.5 border border-[#1b5e84] text-sm font-semibold text-[#1b5e84] hover:bg-[#1a5d86] hover:text-white transition cursor-pointer">
+              Start Learning For Free
             </button>
           </div>
         </div>
-
-        <div className="flex shrink-0 items-center justify-center">
-          <img
-            src={Lawyer}
-            alt="Lawyer illustration"
-            className="h-110 w-110 object-contain sm:w-30 md:w-45 lg:w-110"
-          />
-        </div>
       </section>
-
-         <section className="mx-auto w-full  px-6 py-12 sm:px-10 md:px-14 lg:px-20">
-            <h2 className="mb-3 text-center text-xl font-bold text-[#2071a3] md:text-2xl">
-                Learn Law Through Real-World Cases
-            </h2>
-            <hr className="border-[#9bcbe5] mb-10 w-full max-w-xs mx-auto border" />
-
-            <div className="space-y-8 md:space-y-10">
-            {features.map((feature) => (
-                <div
-                key={feature.title}
-                className={`flex flex-col items-center gap-5 md:flex-row md:gap-10 ${
-                    feature.reverse ? "md:flex-row-reverse" : ""
-                }`}
-                >
-                <div className="  md:flex-1">
-                    <div className="rounded-lg border border-[#9bcbe5] p-4">
-                    <h3 className="text-md font-bold text-[#2071a3] md:text-base">
-                        {feature.title}
-                    </h3>
-
-                    <p className=" max-w-150 mt-2 text-xs font-semibold leading-relaxed text-slate-600 md:text-sm">
-                        {feature.description}
-                    </p>
-                    <div className="mt-5 flex justify-end">
-                        <button className="rounded-full border border-[#2071a3] px-3 py-1 text-[10px] text-[#2071a3] transition hover:bg-[#2071a3] hover:text-white cursor-pointer">
-                            Lanjut →
-                        </button>
-                    </div>
-                    </div>
-                </div>
-
-                <div className="flex w-full items-center justify-center md:flex-1">
-                    <img
-                    src={feature.image}
-                    alt={feature.imageAlt}
-                    className="h-50 w-full max-w-80 object-contain md:h-50 md:max-w-80"
-                    />
-                </div>
-                </div>
-            ))}
-            </div>
-      </section>
-
-      <section className=" mx-auto min-h-20 w-full  bg-[#cfe2eb] px-6 py-8 sm:px-10 md:min-h-20 md:px-14 lg:px-20">
-             <h2 className=" mt-4 mb-3 text-center text-2xl font-bold text-[#1B5E84] md:text-2xl">
-                Start Learning Law for Free
-            </h2>
-            <p className="mb-6 text-center text-xs  leading-relaxed text-[#2580AE] md:text-sm">
-                Join our platform and start your journey to understanding law and legal basics through interactive stories and quizzes.
-            </p>
-            <div className="flex justify-center mb-10">
-                <button className="rounded-[14px] bg-white px-8 py-5 border border-[#1C5D83] text-xs font-semibold text-[#1B5E84] transition hover:bg-[#1a5d86] hover:text-white cursor-pointer">
-                    Start Learning For Free
-                </button>
-            </div>
-
-      </section>
-
     </div>
   );
 }

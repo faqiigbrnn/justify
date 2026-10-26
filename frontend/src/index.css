@@ -9,7 +9,12 @@ html,
 body {
     width: 100%;
   min-height: 100%;
+}
 
+/* Sembunyikan icon mata bawaan browser (Microsoft Edge) agar tidak ganda */
+input::-ms-reveal,
+input::-ms-clear {
+  display: none !important;
 }
 
 .page-wrapper {
