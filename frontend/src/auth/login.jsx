@@ -25,15 +25,15 @@ function Login({ onNavigateToRegister }) {
               <img
                 src={logoImg}
                 alt="Justify Logo"
-                className="max-w-[320px] sm:max-w-[420px] lg:max-w-[500px] w-full h-auto object-contain"
+                className="max-w-[320px] sm:max-w-105 lg:max-w-125 w-full h-auto object-contain"
               />
             </Link>
           </div>
         </div>
 
         {/* Panel kanan */}
-        <div className="flex-1 lg:flex-[1.1] bg-white px-6 py-8 sm:px-12 lg:px-[60px] lg:pt-[35px] lg:pb-[24px] flex flex-col justify-between items-center lg:rounded-bl-[50px] min-h-screen lg:h-screen overflow-y-auto w-full box-border">
-          <div className="max-w-[380px] w-full my-auto">
+        <div className="flex-1 lg:flex-[1.1] bg-white px-6 py-8 sm:px-12 lg:px-15 lg:pt-8.75 lg:pb-6 flex flex-col justify-between items-center lg:rounded-bl-[50px] min-h-screen lg:h-screen overflow-y-auto w-full box-border">
+          <div className="max-w-95 w-full my-auto">
 
             <h1 className="text-[28px] lg:text-[32px] font-bold text-black mb-1.5 lg:mb-2.5">Welcome Back!</h1>
             <h2 className="text-[20px] lg:text-[22px] font-semibold text-gray-900 mb-1 lg:mb-2">Log in to Your Account</h2>
@@ -52,7 +52,7 @@ function Login({ onNavigateToRegister }) {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    className="w-full border border-gray-300 rounded-[6px] px-[15px] py-3 text-[14px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/15"
+                    className="w-full border border-gray-300 rounded-md px-3.75 py-3 text-[14px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/15"
                   />
                 </div>
               </div>
@@ -66,7 +66,7 @@ function Login({ onNavigateToRegister }) {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    className="w-full border border-gray-300 rounded-[6px] px-[15px] py-3 pr-10 text-[14px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/15 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
+                    className="w-full border border-gray-300 rounded-md px-3.75 py-3 pr-10 text-[14px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/15 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
                   />
                   <button
                     type="button"
@@ -109,7 +109,7 @@ function Login({ onNavigateToRegister }) {
                 </a>
               </div>
 
-              <button type="submit" className="w-full bg-[#2071a3] hover:bg-[#185a82] text-white py-[11px] px-5 rounded-[6px] text-[13.5px] font-medium cursor-pointer transition duration-200">
+              <button type="submit" className="w-full bg-[#2071a3] hover:bg-[#185a82] text-white py-2.75 px-5 rounded-md text-[13.5px] font-medium cursor-pointer transition duration-200">
                 Sign In
               </button>
             </form>

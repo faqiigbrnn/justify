@@ -1,4 +1,5 @@
 import justifyLogo from "../../assets/images/justify-logo.png";
+import JustifyLogoPale from "../../assets/images/logo-justify-pale.png";
 
 export default function Footer() {
   return (
@@ -30,9 +31,9 @@ export default function Footer() {
 
         {/*Logo */}
         <div className="flex items-center justify-center md:justify-start md:flex-1">
-          <div className="w-18 h-18 sm:w-20 sm:h-20 rounded-2xl bg-[#cfe2eb] flex items-center justify-center shadow-xs overflow-hidden">
+          <div className="w-20 h-20 sm:w-20 sm:h-20  flex items-center justify-center shadow-xs overflow-hidden">
             <img
-              src={justifyLogo}
+              src={JustifyLogoPale}
               alt="JUSTIFY"
               className="w-full h-full object-contain scale-125"
             />
