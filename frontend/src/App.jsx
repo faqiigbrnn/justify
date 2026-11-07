@@ -5,6 +5,7 @@ import Register from "./auth/register.jsx";
 import LandingPage from "./pages/LandingPage.jsx";
 import Footer from "./components/layout/Footer.jsx";
 import LegalStories from "./pages/LegalStories.jsx"
+import AllCases from "./pages/AllCases.jsx"
 import LegalStoriesScene from "./pages/LegalStoriesScene.jsx"
 
 function App() {
@@ -16,8 +17,8 @@ function App() {
         <Route path="/register" element={<Register />} />
 
 
-        {/* Legal Stories */ }
-        <Route path="/legal-stories" element={<LegalStories />} />
+        <Route path="/legal-stories" element={<><Navbar /><LegalStories /><Footer /></>} />
+        <Route path="/legal-stories/all" element={<><Navbar /><AllCases /></>} />
         <Route path="/legal-stories/:theme" element={<LegalStoriesScene />} />
       </Routes>
 

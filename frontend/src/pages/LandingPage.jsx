@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Lawyer from "../assets/images/lawyer-illustration.png";
 import LegalStories from "../assets/images/legal-stories.png";
 import LegalQuizzes from "../assets/images/legal-quiz.png";
@@ -12,6 +13,7 @@ function LandingPage() {
       image: LegalStories,
       imageAlt: "Interactive legal stories illustration",
       reverse: false,
+      to: "/legal-stories",
     },
     {
       title: "Interactive Quizzes",
@@ -49,13 +51,19 @@ function LandingPage() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <button className="rounded-full border border-[#2071a3] bg-white px-7 py-3 text-sm font-semibold text-[#2071a3] hover:bg-slate-50 transition cursor-pointer">
+              <Link
+                to="/register"
+                className="rounded-full border border-[#2071a3] bg-white px-7 py-3 text-sm font-semibold text-[#2071a3] hover:bg-slate-50 transition cursor-pointer"
+              >
                 Start Learning For Free
-              </button>
+              </Link>
 
-              <button className="rounded-full bg-[#2071a3] px-7 py-3 text-sm font-semibold text-white hover:bg-[#185a82] transition cursor-pointer">
+              <Link
+                to="/legal-stories"
+                className="rounded-full bg-[#2071a3] px-7 py-3 text-sm font-semibold text-white hover:bg-[#185a82] transition cursor-pointer"
+              >
                 Explore Legal Stories
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -95,9 +103,12 @@ function LandingPage() {
                     {feature.description}
                   </p>
                   <div className="mt-4 flex justify-end">
-                    <button className="rounded-full border border-[#2071a3] px-4 py-1.5 text-xs font-semibold text-[#2071a3] hover:bg-[#2071a3] hover:text-white transition cursor-pointer">
+                    <Link
+                      to={feature.to || "#"}
+                      className="rounded-full border border-[#2071a3] px-4 py-1.5 text-xs font-semibold text-[#2071a3] hover:bg-[#2071a3] hover:text-white transition cursor-pointer"
+                    >
                       Lanjut →
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>

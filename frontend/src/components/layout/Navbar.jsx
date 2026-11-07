@@ -7,6 +7,7 @@ function Navbar() {
     { label: "Pusat Edukasi", to: "/pusat-edukasi" },
     { label: "Quiz", to: "/quiz" },
     { label: "Legal Stories", to: "/legal-stories" },
+
   ];
 
   return (

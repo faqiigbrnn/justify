@@ -18,7 +18,7 @@ function StoryDialog({ dialog }) {
             ${item.position || ""}
           `}
         >
-          <p className="text-lg leading-relaxed text-gray-800">
+          <p className="text-lg leading-relaxed text-gray-800 whitespace-pre-line">
             {item.text}
           </p>
         </div>
