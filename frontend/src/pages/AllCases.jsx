@@ -35,7 +35,7 @@ const casesData = [
     category: "Kasus Jual Beli",
     title: "Sengketa Jual Beli Tanah",
     description: "Ketika kesepakatan jual beli tanah berubah menjadi sengketa.",
-    iamge:jualbeli,
+    image: jualbeli,
   },
   {
     id: 5,
@@ -43,7 +43,7 @@ const casesData = [
     category: "Perjanjian Kontrak",
     title: "Kontrak Kerja",
     description: "Memahami Hak, Kewajiban dan Hal yang perlu diperhatikan sebelum tanda tangan",
-    image:kontrakkerja,
+    image: kontrakkerja,
   },
   {
     id: 6,
@@ -51,7 +51,7 @@ const casesData = [
     category: "Kasus Sewa Menyewa",
     title: "Sengketa Sewa Rumah",
     description: "Atap bocor dan barang penyewa rusak, siapa yang bertanggung jawab?",
-    image:sewa,
+    image: sewa,
   },
 ];
 

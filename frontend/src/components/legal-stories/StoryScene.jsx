@@ -59,10 +59,12 @@ function StoryScene({
         {/* Tombol Pilihan Interaktif (Choices) */}
         {scene.choices && (
           <div
-            className={`absolute z-20 flex flex-col gap-3.5 ${scene.choicesPosition || "left-[32%] top-[48%] w-[28%]"
+            className={`absolute z-20 flex flex-col gap-3.5 ${scene.choicesPosition ||
+              scene.choices?.choicesPosition ||
+              "left-[32%] top-[48%] w-[28%]"
               }`}
           >
-            {scene.choices.map((choice, index) => {
+            {(Array.isArray(scene.choices) ? scene.choices : [scene.choices]).map((choice, index) => {
               const label = typeof choice === "string" ? choice : choice.text;
               return (
                 <button
@@ -86,6 +88,31 @@ function StoryScene({
           </div>
         )}
 
+        {/* Tombol Aksi Akhir (Ulangi Story / Pilih Story Lainnya) */}
+        {scene.actionButtons && (
+          <div
+            className={`absolute z-30 ${scene.actionButtonsPosition ||
+              "bottom-6 left-1/2 -translate-x-1/2 w-[55%] flex items-center justify-between"
+              }`}
+          >
+            <button
+              type="button"
+              onClick={onRestart}
+              className="rounded-xl border border-gray-300 bg-white px-7 py-2.5 text-sm font-semibold text-gray-800 shadow-md hover:bg-gray-100 transition cursor-pointer"
+            >
+              {scene.actionButtons.restartLabel || "Ulangi Story"}
+            </button>
+
+            <button
+              type="button"
+              onClick={onExit}
+              className="rounded-xl bg-[#2071a3] hover:bg-[#185a82] px-7 py-2.5 text-sm font-semibold text-white shadow-md transition cursor-pointer"
+            >
+              {scene.actionButtons.exitLabel || "Pilih Story Lainnya"}
+            </button>
+          </div>
+        )}
+
         {/* Navigasi Back & Next */}
         <div className="absolute inset-x-0 top-0 z-50 flex items-center justify-between p-5 pointer-events-none">
           <button
@@ -95,7 +122,7 @@ function StoryScene({
             ← Back
           </button>
 
-          {!scene.fyi && !scene.resultCard && (
+          {!scene.fyi && !scene.resultCard && !scene.choices && !scene.actionButtons && !scene.hideNextButton && (
             <button
               onClick={onNext}
               className="pointer-events-auto rounded-lg bg-white px-8 py-2 text-md font-semibold text-gray-800 shadow-md hover:bg-[#BBD9E8] border-2 border-[#2580AE] cursor-pointer"

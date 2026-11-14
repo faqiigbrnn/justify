@@ -1,7 +1,9 @@
-import jualBeli from "./jualBeli.js"
+import jualBeli from "./jualBeli.js";
+import kontrakkerja from "./kontrakkerja.js";
 
 const legalStories = [
-    jualBeli
+    jualBeli,
+    kontrakkerja,
 ];
 
 export default legalStories;
