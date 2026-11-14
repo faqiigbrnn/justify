@@ -1,7 +1,8 @@
 import jualBeli from "./jualBeli.js"
-
+import sewaMenyewa from "./sewaMenyewa.js"
 const legalStories = [
-    jualBeli
+    jualBeli,
+    sewaMenyewa,
 ];
 
 export default legalStories;

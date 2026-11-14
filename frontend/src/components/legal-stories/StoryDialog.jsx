@@ -12,7 +12,7 @@ function StoryDialog({ dialog }) {
           className={`
             absolute z-20
             rounded-xl border-2 border-[#2580AE]
-            bg-white px-8 py-4
+            bg-white px-8 py-6
             shadow-md
             ${item.width || "w-[38%]"}
             ${item.position || ""}

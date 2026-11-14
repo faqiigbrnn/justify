@@ -9,7 +9,7 @@ function StoryResultCard({ resultCard, onRestart, onExit }) {
       <div className="relative rounded-[28px] bg-[#E8F4F8] p-7 md:p-9 shadow-2xl border border-white/60">
         <div className="absolute -top-7 left-1/2 -translate-x-1/2 flex flex-col items-center">
           <div className="relative flex flex-col items-center">
-            <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-b from-[#FFD700] via-[#FFA500] to-[#FF8C00] p-1 shadow-lg border-2 border-white">
+            <div className="relative flex h-14 w-14 items-center justify-center rounded-full bg-linear-to-b from-[#FFD700] via-[#FFA500] to-[#FF8C00] p-1 shadow-lg border-2 border-white">
               <svg
                 viewBox="0 0 24 24"
                 className="h-8 w-8 text-white fill-current drop-shadow-sm"
@@ -19,8 +19,8 @@ function StoryResultCard({ resultCard, onRestart, onExit }) {
             </div>
 
             <div className="flex gap-1 -mt-1.5">
-              <div className="h-4 w-3 bg-[#E53E3E] rounded-b-[2px] shadow-sm transform -rotate-12"></div>
-              <div className="h-4 w-3 bg-[#C53030] rounded-b-[2px] shadow-sm transform rotate-12"></div>
+              <div className="h-4 w-3 bg-[#E53E3E] rounded-b-xs shadow-sm transform -rotate-12"></div>
+              <div className="h-4 w-3 bg-[#C53030] rounded-b-xs shadow-sm transform rotate-12"></div>
             </div>
           </div>
         </div>

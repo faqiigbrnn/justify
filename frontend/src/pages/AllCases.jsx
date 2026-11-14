@@ -22,31 +22,6 @@ const casesData = [
   },
   {
     id: 3,
-    slug: "jual-beli",
-    category: "Kasus Jual Beli",
-    title: "Sengketa Jual Beli Tanah",
-    description: "Ketika kesepakatan jual beli tanah berubah menjadi sengketa.",
-    image: jualbeli,
-
-  },
-  {
-    id: 4,
-    slug: "jual-beli",
-    category: "Kasus Jual Beli",
-    title: "Sengketa Jual Beli Tanah",
-    description: "Ketika kesepakatan jual beli tanah berubah menjadi sengketa.",
-    iamge:jualbeli,
-  },
-  {
-    id: 5,
-    slug: "kontrak-kerja",
-    category: "Perjanjian Kontrak",
-    title: "Kontrak Kerja",
-    description: "Memahami Hak, Kewajiban dan Hal yang perlu diperhatikan sebelum tanda tangan",
-    image:kontrakkerja,
-  },
-  {
-    id: 6,
     slug: "sewa-rumah",
     category: "Kasus Sewa Menyewa",
     title: "Sengketa Sewa Rumah",

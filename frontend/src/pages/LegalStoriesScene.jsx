@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import StoryScene from "../components/legal-stories/StoryScene";
 import SignInModal from "../components/legal-stories/SignInModal";
 import legalStories from "../data/legal-stories";
-
+import SewaMenyewaScene from "../components/legal-stories/SewaMenyewaScene";
 function LegalStoriesScene() {
   const { theme } = useParams();
   const navigate = useNavigate();
@@ -120,17 +120,20 @@ function LegalStoriesScene() {
     handleNext();
   };
 
-  // Fungsi saat ulangi cerita (kembali ke scene pilihan agar bisa mencoba pilihan lain)
   const handleRestart = () => {
-    const choiceSceneIndex = story.scenes.findIndex((s) => s.id === 6);
-    const target = choiceSceneIndex !== -1 ? choiceSceneIndex : 0;
-    setCurrentScene(target);
-    setSceneHistory((prev) => [...prev, target]);
+    setCurrentScene(0);
+    setSceneHistory([]);
+    setShowSignInModal(false);
+    setShowFYI(false);
   };
+  const SceneComponent =
+  story.id === "sewa-menyewa"
+    ? SewaMenyewaScene
+    : StoryScene;
 
   return (
     <main className="min-h-screen bg-gray-100 relative">
-      <StoryScene
+      <SceneComponent
         story={story}
         scene={scene}
         currentScene={currentScene}
