@@ -27,7 +27,6 @@ const casesData = [
     title: "Sengketa Jual Beli Tanah",
     description: "Ketika kesepakatan jual beli tanah berubah menjadi sengketa.",
     image: jualbeli,
-
   },
   {
     id: 4,

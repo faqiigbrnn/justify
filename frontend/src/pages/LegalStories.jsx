@@ -3,7 +3,6 @@ import LegalApproach from "../assets/images/legal-approach.png";
 import JualBeli from "../assets/images/legal-stories/jual-beli/rumahdanandi.png";
 import SewaMenyewa from "../assets/images/legal-stories/jual-beli/sewa-rumah.png";
 import KontrakKerja from "../assets/images/legal-stories/jual-beli/kontrak-kerja.png";
-
 export default function LegalStories() {
   const stories = [
     {
@@ -32,9 +31,9 @@ export default function LegalStories() {
   return (
     <div className="min-h-screen bg-[#D2EAF0]">
 
-      <main className="max-w-[1200px] mx-auto px-6 md:px-12 py-7">
+      <main className="max-w-300 mx-auto px-6 md:px-12 py-7">
 
-        <section className="bg-white border border-[#258BD1] rounded-2xl px-5 md:px-10 py-6 md:py-8 flex items-center justify-between min-h-[155px]">
+        <section className="bg-white border border-[#258BD1] rounded-2xl px-5 md:px-10 py-6 md:py-8 flex items-center justify-between min-h-38.75">
           <div className="w-1/2">
             <h1 className="text-xl md:text-2xl font-semibold leading-snug text-black">
               What Would You Do?
@@ -54,7 +53,7 @@ export default function LegalStories() {
             <img
               src={LegalApproach}
               alt="Legal Approach Illustration"
-              className="w-full max-w-[220px] h-[110px] object-contain scale-155 origin-right"
+              className="w-full max-w-55 h-27.5 object-contain scale-155 origin-right"
             />
           </div>
         </section>
@@ -86,7 +85,7 @@ export default function LegalStories() {
           {stories.map((story) => (
             <div
               key={story.id}
-              className="relative h-[190px] rounded-xl overflow-hidden group shadow-sm bg-gray-300"
+              className="relative h-47.5 rounded-xl overflow-hidden group shadow-sm bg-gray-300"
             >
               <img
                 src={story.image}
@@ -94,7 +93,7 @@ export default function LegalStories() {
                 className="w-full h-full object-cover transition duration-300 group-hover:scale-105"
               />
 
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent"></div>
 
               <div className="absolute top-3 left-3 z-10">
                 <span className="bg-white/90 text-gray-800 text-[10px] px-2.5 py-1 rounded-sm font-semibold shadow-xs">

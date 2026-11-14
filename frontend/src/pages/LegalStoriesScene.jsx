@@ -4,7 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import StoryScene from "../components/legal-stories/StoryScene";
 import SignInModal from "../components/legal-stories/SignInModal";
 import legalStories from "../data/legal-stories";
-
+import SewaMenyewaScene from "../components/legal-stories/SewaMenyewaScene";
 function LegalStoriesScene() {
   const { theme } = useParams();
   const navigate = useNavigate();
@@ -129,11 +129,17 @@ function LegalStoriesScene() {
   const handleRestart = () => {
     setCurrentScene(0);
     setSceneHistory([0]);
+    setShowSignInModal(false);
+    setShowFYI(false);
   };
+  const SceneComponent =
+  story.id === "sewa-menyewa"
+    ? SewaMenyewaScene
+    : StoryScene;
 
   return (
     <main className="min-h-screen bg-gray-100 relative">
-      <StoryScene
+      <SceneComponent
         story={story}
         scene={scene}
         currentScene={currentScene}

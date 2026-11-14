@@ -288,9 +288,9 @@ const jualBeli = {
             },
 
             dialog: {
-                text: "Apakah saya tetap melanjutkan pembayaran?\n Pilih dari 3 Pilihan di bawah ini!",
-                width: "w-[28%]",
-                position: "absolute left-[26%] top-[32%]",
+                text: "Apakah saya tetap melanjutkan pembayaran?\n  Pilih dari 3 Pilihan di bawah ini!",
+                width: "w-[32%] ",
+                position: "absolute left-[26%] top-[32%] font-bold",
             },
 
             choices: [
@@ -307,7 +307,7 @@ const jualBeli = {
                     nextSceneId: 9,
                 },
             ],
-            choicesPosition: "absolute left-[32%] top-[53%] w-[26%]",
+            choicesPosition: "absolute left-[32%] top-[53%] w-[26%] h-[30%] gap-5",
 
             fyi: {
                 title: "For Your Information",
