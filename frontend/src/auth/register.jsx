@@ -13,20 +13,45 @@ function Register({ onNavigateToLogin }) {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    const handleSubmit = async (e) => {
+    e.preventDefault();
 
-        if (password !== confirmPassword) {
-            alert('Password dan Confirm Password tidak cocok!');
+    if (password !== confirmPassword) {
+        alert('Password dan Confirm Password tidak cocok!');
+        return;
+    }
+
+    try {
+        const response = await fetch('http://localhost:5000/api/auth/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                full_name: fullName,
+                email: email,
+                password: password
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            alert(data.message || 'Pendaftaran gagal!');
             return;
         }
 
-        console.log({ fullName, email, password, agreeTerms });
-        alert(`Pendaftaran berhasil untuk ${fullName}! Silakan login.`);
-        if (onNavigateToLogin) onNavigateToLogin();
-        else navigate('/login');
-    };
 
+        if (onNavigateToLogin) {
+            onNavigateToLogin();
+        } else {
+            navigate('/login');
+        }
+
+    } catch (error) {
+        console.error('Register error:', error);
+    }
+};
     return (
         <div className="w-screen min-h-screen lg:h-screen flex">
             <div className="flex flex-col lg:flex-row w-full min-h-screen lg:h-screen overflow-hidden">
@@ -38,15 +63,15 @@ function Register({ onNavigateToLogin }) {
                             <img
                                 src={logoImg}
                                 alt="Justify Logo"
-                                className="max-w-[320px] sm:max-w-[420px] lg:max-w-[500px] w-full h-auto object-contain"
+                                className="max-w-[320px] sm:max-w-105 lg:max-w-125 w-full h-auto object-contain"
                             />
                         </Link>
                     </div>
                 </div>
 
                 {/* Panel kanan */}
-                <div className="flex-1 lg:flex-[1.1] bg-white px-6 py-8 sm:px-12 lg:px-[60px] lg:pt-[35px] lg:pb-[24px] flex flex-col justify-between items-center lg:rounded-bl-[50px] min-h-screen lg:h-screen overflow-y-auto w-full box-border">
-                    <div className="max-w-[380px] w-full my-auto">
+                <div className="flex-1 lg:flex-[1.1] bg-white px-6 py-8 sm:px-12 lg:px-15 lg:pt-8.75 lg:pb-6 flex flex-col justify-between items-center lg:rounded-bl-[50px] min-h-screen lg:h-screen overflow-y-auto w-full box-border">
+                    <div className="max-w-95 w-full my-auto">
 
                         <h1 className="text-[28px] font-bold text-black mb-1.5">Welcome</h1>
                         <h2 className="text-[20px] font-semibold text-gray-900 mb-1">Create Your Account</h2>
@@ -65,7 +90,7 @@ function Register({ onNavigateToLogin }) {
                                         value={fullName}
                                         onChange={(e) => setFullName(e.target.value)}
                                         required
-                                        className="w-full border border-gray-300 rounded-[6px] px-3.5 py-2.5 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12"
+                                        className="w-full border border-gray-300 rounded-md px-3.5 py-2.5 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12"
                                     />
                                 </div>
                             </div>
@@ -80,7 +105,7 @@ function Register({ onNavigateToLogin }) {
                                         value={email}
                                         onChange={(e) => setEmail(e.target.value)}
                                         required
-                                        className="w-full border border-gray-300 rounded-[6px] px-3.5 py-2.5 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12"
+                                        className="w-full border border-gray-300 rounded-md px-3.5 py-2.5 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12"
                                     />
                                 </div>
                             </div>
@@ -95,7 +120,7 @@ function Register({ onNavigateToLogin }) {
                                         value={password}
                                         onChange={(e) => setPassword(e.target.value)}
                                         required
-                                        className="w-full border border-gray-300 rounded-[6px] px-3.5 py-2.5 pr-10 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
+                                        className="w-full border border-gray-300 rounded-md px-3.5 py-2.5 pr-10 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
                                     />
                                     <button
                                         type="button"
@@ -132,7 +157,7 @@ function Register({ onNavigateToLogin }) {
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                         required
-                                        className="w-full border border-gray-300 rounded-[6px] px-3.5 py-2.5 pr-10 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
+                                        className="w-full border border-gray-300 rounded-md px-3.5 py-2.5 pr-10 text-[13px] text-gray-800 outline-none bg-white transition duration-200 placeholder:text-gray-400 focus:border-[#2071a3] focus:ring-3 focus:ring-[#2071a3]/12 [&::-ms-reveal]:hidden [&::-ms-clear]:hidden"
                                     />
                                     <button
                                         type="button"
@@ -159,7 +184,7 @@ function Register({ onNavigateToLogin }) {
                                 </div>
                             </div>
 
-                            <button type="submit" className="w-full bg-[#2071a3] hover:bg-[#185a82] text-white py-[11px] px-5 rounded-[6px] text-[13.5px] font-medium cursor-pointer transition duration-200 mt-2">
+                            <button type="submit" className="w-full bg-[#2071a3] hover:bg-[#185a82] text-white py-2.75 px-5 rounded-md text-[13.5px] font-medium cursor-pointer transition duration-200 mt-2">
                                 Sign Up
                             </button>
                         </form>

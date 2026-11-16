@@ -74,13 +74,16 @@ function LegalStoriesScene() {
 
   // Fungsi tombol Next
   const handleNext = () => {
-    // Jika dari scene 2 (index 2) mau lanjut ke scene 3 (index 3)
-    if (currentScene === 2) {
+    // Khusus cerita jual-beli: tampilkan modal Sign In sebelum scene 4 (index 3)
+    if (story.id === "jual-beli" && currentScene === 2) {
       const nextIndex = 3;
       setCurrentScene(nextIndex);
       setSceneHistory((prev) => [...prev, nextIndex]);
-      setShowSignInModal(true); // Tampilkan modal Sign In di atas Scene 3
-    } else if (
+      setShowSignInModal(true);
+      return;
+    }
+
+    if (
       scene &&
       (scene.isEnding ||
         scene.buttonLabel === "Selesai" ||
@@ -88,9 +91,10 @@ function LegalStoriesScene() {
     ) {
       // Jika scene ini adalah ending, selesaikan cerita dan kembali ke daftar kasus
       navigate("/legal-stories");
-    } else if (scene && scene.nextSceneId) {
+    } else if (scene && (scene.nextSceneId || scene.nextScene)) {
       // Jika scene menentukan scene tujuan khusus
-      const targetIndex = story.scenes.findIndex((s) => s.id === scene.nextSceneId);
+      const targetId = scene.nextSceneId || scene.nextScene;
+      const targetIndex = story.scenes.findIndex((s) => s.id === targetId);
       if (targetIndex !== -1) {
         setCurrentScene(targetIndex);
         setSceneHistory((prev) => [...prev, targetIndex]);
@@ -107,8 +111,9 @@ function LegalStoriesScene() {
 
   // Fungsi saat memilih opsi pilihan (Branching / Percabangan Cerita)
   const handleSelectChoice = (choice) => {
-    if (choice && choice.nextSceneId) {
-      const targetIndex = story.scenes.findIndex((s) => s.id === choice.nextSceneId);
+    const targetId = choice?.nextSceneId || choice?.nextScene;
+    if (targetId) {
+      const targetIndex = story.scenes.findIndex((s) => s.id === targetId);
       if (targetIndex !== -1) {
         setCurrentScene(targetIndex);
         setSceneHistory((prev) => [...prev, targetIndex]);
@@ -120,9 +125,10 @@ function LegalStoriesScene() {
     handleNext();
   };
 
+  // Fungsi saat ulangi cerita (kembali ke scene awal agar bisa membaca ulang)
   const handleRestart = () => {
     setCurrentScene(0);
-    setSceneHistory([]);
+    setSceneHistory([0]);
     setShowSignInModal(false);
     setShowFYI(false);
   };

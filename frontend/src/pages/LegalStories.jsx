@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import LegalApproach from "../assets/images/legal-approach.png";
-import JualBeli from "../assets/images/legal-stories/jual-beli/rumah.png";
+import JualBeli from "../assets/images/legal-stories/jual-beli/rumahdanandi.png";
 import SewaMenyewa from "../assets/images/legal-stories/jual-beli/sewa-rumah.png";
 import KontrakKerja from "../assets/images/legal-stories/jual-beli/kontrak-kerja.png";
 export default function LegalStories() {
@@ -14,7 +14,7 @@ export default function LegalStories() {
     },
     {
       id: 2,
-      slug: "sewa-menyewa",
+      slug: "sewa-rumah",
       category: "Kasus Sewa Menyewa",
       title: "Permasalahan dalam Perjanjian Sewa Menyewa",
       image: SewaMenyewa,
