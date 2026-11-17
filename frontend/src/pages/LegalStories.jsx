@@ -29,9 +29,8 @@ export default function LegalStories() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#D2EAF0]">
+    <div className=" mx-auto w-full max-w-300 pt-12">
 
-      <main className="max-w-300 mx-auto px-6 md:px-12 py-7">
 
         <section className="bg-white border border-[#258BD1] rounded-2xl px-5 md:px-10 py-6 md:py-8 flex items-center justify-between min-h-38.75">
           <div className="w-1/2">
@@ -49,7 +48,7 @@ export default function LegalStories() {
             </div>
           </div>
 
-          <div className="w-/3 flex justify-end">
+          <div className="w-1/3 flex justify-end">
             <img
               src={LegalApproach}
               alt="Legal Approach Illustration"
@@ -118,8 +117,6 @@ export default function LegalStories() {
             </div>
           ))}
         </section>
-
-      </main>
     </div>
   );
 }

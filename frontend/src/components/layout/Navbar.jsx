@@ -1,17 +1,28 @@
 import { Link, NavLink } from "react-router-dom";
 import justifyLogo from "../../assets/images/justify-logo.png";
-
+import { useState, useEffect } from "react";
 function Navbar() {
   const menuItems = [
     { label: "Home", to: "/" },
     { label: "Pusat Edukasi", to: "/pusat-edukasi" },
-    { label: "Quiz", to: "/quiz" },
     { label: "Legal Stories", to: "/legal-stories" },
 
   ];
+  const [scrolled, setScrolled] = useState(false);
 
+      useEffect(() => {
+        const handleScroll = () => {
+          setScrolled(window.scrollY > 0);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+          window.removeEventListener("scroll", handleScroll);
+        };
+      }, []);
   return (
-    <nav className="w-full bg-white shadow-xs sticky top-0 z-50">
+    <nav className={`w-full bg-white sticky top-0 z-50 transition-shadow duration-300 ${ scrolled ? "shadow-md" : "shadow-none"}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-12 h-20 flex items-center justify-between">
         
         {/* Logo */}

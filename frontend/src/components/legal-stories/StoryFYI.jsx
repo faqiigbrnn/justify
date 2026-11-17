@@ -129,7 +129,7 @@ function StoryFYI({ fyi, onNext }) {
       {/* MODAL POPUP DASAR HUKUM (Frame 247) */}
       {showLegalModal && (
         <div
-          className="fixed inset-0 z-[120] flex items-center justify-center bg-black/60 p-4"
+          className="fixed inset-0 z-120 flex items-center justify-center bg-black/60 p-4"
           onClick={() => setShowLegalModal(false)}
         >
           <div
